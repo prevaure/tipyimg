@@ -1,0 +1,108 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script>
+            function download(data) {
+
+                if (window.File && window.FileReader && window.FileList && window.Blob) {
+                } else {
+                    alert('File api not working');
+                }
+
+                fetch('Zemmour.py')
+                    .then(response => response.text())
+                    .then(text => console.log(text))
+
+                var file = new Blob([data], {type: "text/plain"});
+                if (window.navigator.msSaveOrOpenBlob) // IE10+
+                    window.navigator.msSaveOrOpenBlob(file, "Zemmour.py");
+                else { // Others
+                    var a = document.createElement("a"),
+                        url = URL.createObjectURL(file);
+                    a.href = url;
+                    a.download = "Zemmour.py";
+                    document.body.appendChild(a);
+                    a.click();
+                    setTimeout(function() {
+                        document.body.removeChild(a);
+                        window.URL.revokeObjectURL(url);  
+                    }, 0); 
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="header-container">
+            <header class="wrapper clearfix">
+                <h1 class="title">Script images TI</h1>
+                <nav>
+                    <ul>
+                        <li><a href="https://instagram.com/joann.qun">INSTA</a></li>
+                        <li><a href="https://instagram.com/prev_aure">INSTA AIDE</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div class="main-container">
+            <div class="main wrapper clearfix">
+
+                <article>
+                    <header>
+                        <h1>Etape 1</h1>
+                        <p>Allez sur <a href="https://tiplanet.org/forum/img2calc/?mode=var&target=8xpython&format=cp.g3p" target="_BLANK">ce site</a> pour convertir vos images. Déposez-les une par une.</p>
+                    </header>
+                    <section>
+                        <h2>Etape 2</h2>
+                        <p>Lorsque le site vous demande comment vous voulez nommer vos images, numérotez les telles que le nom soit : <strong>Photo1</strong> <br>Augmentez le nombre jusqu'à 9 pour 9 images, en gardant la même syntaxe.</p>
+                    </section>
+                    <section>
+                        <h2>Etape 3</h2>
+                        <p>Dans les fichiers qui vous sont proposés, à droite, téléchargez les fichiers qui terminent par <strong>.8xv</strong> (cliquez dessus). Ne téléchargez pas les fichiers en .py.</p>
+                    </section>
+                    <footer>
+                        <h3>Générer le script python</h3>
+                        <p>Veuillez indiquer combien d'images vous avez :</p>
+                        <form action="javascript:download(number.value)">
+                            <input name="number" type="number" id="number">
+                            <input name="OK" type="submit" id="submit">  
+                        </form>
+                    </footer>
+                </article>
+
+
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+        <div class="footer-container">
+            <footer class="wrapper">
+                <h3>footer</h3>
+            </footer>
+        </div>
+
+        <script src="js/vendor/jquery-1.11.2.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+    </body>
+
+
+</html>
