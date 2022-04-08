@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>TiPyImg</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -14,20 +14,18 @@
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
 
+        <!--Favicons-->
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="favicon_io/site.webmanifest">
+
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         <script>
             function download(data) {
-
-                if (window.File && window.FileReader && window.FileList && window.Blob) {
-                } else {
-                    alert('File api not working');
-                }
-
-                fetch('Zemmour.py')
-                    .then(response => response.text())
-                    .then(text => console.log(text))
-
-                var file = new Blob([data], {type: "text/plain"});
+                const number = parseInt(data) + 1
+                var text = "from ti_graphics import drawImage\nfrom ti_system import *\n\nn = 1\nfor i in range(1," + number + "):\n   disp_clr()\n   drawImage(\"Photo\" + str(n), 0, 30)\n   n = n+1\n   wait_key()\ndisp_wait()"
+                var file = new Blob([text], {type: "text/plain"});
                 if (window.navigator.msSaveOrOpenBlob) // IE10+
                     window.navigator.msSaveOrOpenBlob(file, "Zemmour.py");
                 else { // Others
@@ -94,7 +92,7 @@
 
         <div class="footer-container">
             <footer class="wrapper">
-                <h3>footer</h3>
+                <h3>https://github.com/prevaure/tipyimg</h3>
             </footer>
         </div>
 
